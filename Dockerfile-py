@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+
+WORKDIR /server/
+RUN pip install aiohttp
+COPY server.py settings.json /server/
+ENTRYPOINT ["/usr/local/bin/python"]
+CMD ["/server/server.py"]

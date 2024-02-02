@@ -1,0 +1,6 @@
+FROM golang:bookworm
+
+WORKDIR /server/
+COPY main.go /server/
+RUN go build /server/main.go
+ENTRYPOINT ["/server/main"]

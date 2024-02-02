@@ -1,0 +1,13 @@
+services:
+  service-go:
+    build:
+        context: .
+        dockerfile: Dockerfile-go
+    environment:
+        PORT: "8000"
+  service-py:
+    build:
+        context: .
+        dockerfile: Dockerfile-py
+    ports:
+        - "8080:8080"
