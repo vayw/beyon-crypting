@@ -3,17 +3,18 @@
 import http.client
 import os
 from sys import exit
+import random
+import string
 
 
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = os.environ.get("PORT", 8080)
 
 ENDPOINTS_DIRECT = ["/one/"]
-ENDPOINTS_EXT = [
-    "/ext/foo",
-    "/ext/bar",
-    "/ext/adhd"
-]
+
+ENDPOINTS_EXT = []
+for _ in range(1, random.randint(4, 10)):
+    ENDPOINTS_EXT.append("/ext/" + "".join(random.choices(string.ascii_lowercase, k=5)))
 ENDPOINT_FINAL = ["/last/"]
 
 ENDPOINTS = ENDPOINTS_DIRECT + ENDPOINTS_EXT + ENDPOINT_FINAL
